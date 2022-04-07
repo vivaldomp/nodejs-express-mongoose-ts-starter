@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="./styles.css">
+  </head>
+  <body>
+    <div class="container">
+        <h1>File Upload</h1>
+        <form id='form' action="http://localhost:3000/customers/upload/textfile" method="post" enctype="multipart/form-data">
+            <div class="input-group">
+                <label for='files'>Selecione o arquivo</label>
+                <input name="textFile" id="textFileID" type="file" class="file">
+            </div>
+            <button class="submit-btn" type='submit'>Upload</button>
+        </form>
+    </div>
+  </body>
+</html>

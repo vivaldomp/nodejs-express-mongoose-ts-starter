@@ -1,0 +1,61 @@
+version: '3'
+
+services:
+
+  db:
+    image: mongo:4.4.4
+    ports:
+      - "27017:27017"
+    volumes:
+      - "./data:/data/db"
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=${MONGO_ROOT_USERNAME}
+      - MONGO_INITDB_ROOT_PASSWORD=${MONGO_ROOT_PASSWORD}
+    restart: always
+ 
+  mongoexpress:
+    image: mongo-express:latest
+    ports:
+      - "8081:8081"
+    environment:
+      - ME_CONFIG_MONGODB_SERVER=db
+      - ME_CONFIG_MONGODB_PORT=27017
+      - ME_CONFIG_MONGODB_ADMINUSERNAME=${MONGO_ROOT_USERNAME}
+      - ME_CONFIG_MONGODB_ADMINPASSWORD=${MONGO_ROOT_PASSWORD}
+      - ME_CONFIG_BASICAUTH_USERNAME=${MONGO_EXPRESS_USER}
+      - ME_CONFIG_BASICAUTH_PASSWORD=${MONGO_EXPRESS_PASSWORD}
+      - ME_CONFIG_MONGODB_ENABLE_ADMIN=true
+      - ME_CONFIG_OPTIONS_EDITORTHEME=default
+    restart: always
+    depends_on:
+      - db
+  service:
+    image: starter-api
+    build:
+      context: .
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./src:/app/src
+    command: ["npm", "run", "watch"]
+    environment:
+      - NODE_ENV=development
+      - MONGO_HOST=db
+      - MONGO_ROOT_USERNAME=${MONGO_ROOT_USERNAME}
+      - MONGO_ROOT_PASSWORD=${MONGO_ROOT_PASSWORD}
+      - MONGO_DBNAME=${MONGO_DBNAME}
+    depends_on:
+      - db
+    restart: always
+
+  migrations:
+    image: starter-api
+    command: ["sh","-c","/app/migration.sh"]
+    environment:
+      - NODE_ENV=development
+      - MONGO_HOST=db
+      - MONGO_ROOT_USERNAME=${MONGO_ROOT_USERNAME}
+      - MONGO_ROOT_PASSWORD=${MONGO_ROOT_PASSWORD}
+      - MONGO_DBNAME=${MONGO_DBNAME}
+    depends_on:
+      - db

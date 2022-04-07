@@ -1,0 +1,123 @@
+{
+  "resource": "Customer",
+  "resource_plural": "Customers",
+  "invalid_field":"invalid field",
+  "invalid_fields_plural":"invalid fields",
+  "error": {
+    "headers_invalid": "Request headers invalid",
+    "header":{
+      "oauth" : {
+        "name": {
+          "empty":"OAuth Name header empty"
+        }
+      },
+      "userid": {
+        "empty": "User ID header empty"
+      }
+    },
+    "process": "An error occurred while processing the request",
+    "system": "System error:",
+    "unexpected": "Unexpected error",
+    "input_data": "Contains error(s) in the reported data",
+    "resource": {
+      "not_found": "$t(resource) not found",
+      "already_exists": "$t(resource) already registered"
+    },
+    "route": {
+      "not_found": "URL {{- route}} not found. Contact your system administrator or see API details at {{- api_url}}"
+    },
+    "database": {
+      "not_found": "$t(resource) {{id}} does not exist in the database",
+      "find": "There was an error fetching $t(resource) from the database",
+      "list": "An error occurred while retrieving the list of $t(resource, {count: 0}) in the database",
+      "create":"An error occurred while registering $t(resource) {{name}} in the database",
+      "update":"An error occurred while updating $t(resource) {{id}} in the database",
+      "delete":"An error occurred while deleting $t(resource) {{id}} in the database",
+      "already_exists": "$t(resource) already exists"
+    },
+    "pagination": {
+      "option": {
+        "select": {
+          "invalid":"The query parameter select has $t(invalid_field): {{fields}}"
+        },
+        "sort": {
+          "invalid":"The query parameter sort has $t(invalid_field): {{fields}}"
+        },
+        "page": {
+          "type":"The query parameter page must be type integer"
+        },
+        "limit": {
+          "type":"The query parameter page must be type integer"
+        },
+        "pagination": {
+          "type":"The query parameter pagination must be boolean"
+        }
+  
+      }
+    },
+    "validation": {
+      "user": {
+        "id": {
+          "wrong":"User ID is wrong",
+          "empty":"User ID field cannot be empty"
+        }
+      },
+      "customer": {
+        "id": {
+          "wrong":"ID is wrong",
+          "empty":"ID field cannot be empty"
+        },
+        "name": {
+          "empty":"Name field cannot be empty",
+          "length":"Name field should be at least 8 chars"
+        },
+        "subscription": {
+          "empty":"Subscription field cannot be empty",
+          "length":"Subscription field should be at least 8 chars"
+        },
+        "email": {
+          "invalid":"Email invalid"
+        },
+        "phone": {
+          "type":"Phone field type must be string"
+        },
+        "company": {
+          "type":"Company field type must be string"
+        },
+        "postalcode": {
+          "type":"PostalCode type must be string"
+        },
+        "address": {
+          "type":"Address field type must be string"
+        },
+        "address_number": {
+          "type":"Address Number field type must be string"
+        },
+        "address_district": {
+          "type":"Address District field type must be string"
+        },
+        "city": {
+          "type":"City field type must be string"
+        },
+        "country": { 
+          "type":"Country field type must be string"
+        },
+        "birthdate": {
+          "type":"BirthDate field type must be string"
+        },
+        "noteabout": {
+          "type":"NoteAbout field type must be string"
+        },
+        "typesubscription": {
+          "not_exist":"TypeSubscription does not exist",
+          "empty":"TypeSubscription field cannot be empty"
+        }
+      }
+    }
+  },
+  "service": {
+    "TEXTFILE": {
+      "upload_successfully":"File TEXTFILE successfuly imported"
+    }
+  }
+}

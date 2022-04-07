@@ -1,0 +1,123 @@
+{
+  "resource": "Cliente",
+  "resource_plural": "Clientes",
+  "invalid_field":" campo inválido",
+  "invalid_fields_plural":"campos inválidos",
+  "error": {
+    "headers_invalid": "Cabeçalho da requisição inválido",
+    "header":{
+      "oauth" : {
+        "name": {
+          "empty":"Cabeçalho OAuth Nome está vázio"
+        }
+      },
+      "user_id": {
+        "empty": "Cabeçalho User ID está vázio"
+      }
+    },
+    "process": "Ocorreu um erro ao processar a solicitação",
+    "system": "Erro do sistema:",
+    "unexpected": "Erro inesperado",
+    "input_data": "Contém erro(s) nos dados informados",
+    "resource": {
+      "not_found": "$t(resource) não encontrado",
+      "already_exists": "$t(resource) já cadastrado"
+    },
+    "route": {
+      "not_found": "URL {{- route}} não encontrada. Contate o administrador do sistema ou consulte detalhes da API no endereço {{- api_url}}"
+    },
+    "database": {
+      "not_found": "$t(resource) {{id}} não existe na base de dados",
+      "find": "Ocorreu um erro ao buscar o $t(resource) na base de dados",
+      "list": "Ocorreu um erro ao recuperar a lista de $t(resource, {count: 0}) na base de dados",
+      "create":"Ocorreu um erro ao cadastrar o $t(resource) {{name}} na base de dados",
+      "update":"Ocorreu um erro ao atualizar o $t(resource) {{id}} na base de dados",
+      "delete":"Ocorreu um erro ao deletar o $t(resource) {{id}} na base de dados",
+      "already_exists": "$t(resource) já cadastrado"
+    },
+    "pagination": {
+      "option": {
+        "select": {
+          "invalid":"O parâmetro de consulta select possui $t(invalid_field): {{fields}}"
+        },
+        "sort": {
+          "invalid":"O parâmetro de consulta sort possui $t(invalid_field): {{fields}}"
+        },
+        "page": {
+          "type":"O parâmetro de consulta page deve ser do tipo inteiro"
+        },
+        "limit": {
+          "type":"O parâmetro de consulta limit deve ser do tipo inteiro"
+        },
+        "pagination": {
+          "type":"O parâmetro de consulta pagination deve ser do tipo booleano"
+        }
+  
+      }
+    },
+    "validation": {
+      "user": {
+        "id": {
+          "wrong":"ID do Usuário é incorreto",
+          "empty":"Campo ID do Usuário não pode ser vazio"
+        }
+      },
+      "customer": {
+        "id": {
+          "wrong":"ID é incorreto",
+          "empty":"Campo ID não pode ser vazio"
+        },
+        "name": {
+          "empty":"Campo Nome não pode ser vazio",
+          "length":"Campo Nome deve possuir no mínimo 8 caracteres"
+        },
+        "subscription": {
+          "empty":"Campo Inscrição não pode ser vazio",
+          "length":"Campo Inscrição dever possuir no mínimo 8 caracteres"
+        },
+        "email": {
+          "invalid":"Email inválido"
+        },
+        "phone": {
+          "type":"Campo Telefone deve possuir conteúdo do tipo caracter"
+        },
+        "company": {
+          "type":"Campo Empresa deve possuir conteúdo do tipo caracter"
+        },
+        "postalcode": {
+          "type":"Campo Código Postal deve possuir conteúdo do tipo caracter"
+        },
+        "address": {
+          "type":"Campo Endereço deve possuir conteúdo do tipo caracter"
+        },
+        "address_number": {
+          "type":"Campo Número do Endereço deve possuir conteúdo do tipo caracter"
+        },
+        "address_district": {
+          "type":"Campo Bairro do Endereço deve possuir conteúdo do tipo caracter"
+        },
+        "city": {
+          "type":"Campo Cidade deve possuir conteúdo do tipo caracter"
+        },
+        "country": { 
+          "type":"Campo Estado deve possuir conteúdo do tipo caracter"
+        },
+        "birthdate": {
+          "type":"Campo Data de Aniversário deve possuir conteúdo do tipo caracter"
+        },
+        "noteabout": {
+          "type":"Campo Observação deve possuir conteúdo do tipo caracter"
+        },
+        "typesubscription": {
+          "not_exist":"Tipo de Inscrição não existe",
+          "empty":"Campo Tipo de Inscrição não pode ser vazio"
+        }
+      }
+    }
+  },
+  "service": {
+    "TEXFILE": {
+      "upload_successfully":"Arquivo TEXTFILE importado com sucesso"
+    }
+  }
+}
